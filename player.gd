@@ -105,6 +105,9 @@ func punch():
 				body.global_position - global_position
 			).normalized()
 
+			dir.y = 0.35
+			dir = dir.normalized()
+
 			body.die(dir * PUNCH_FORCE)
 
 			hitstop(0.1, 0.2)

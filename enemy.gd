@@ -33,8 +33,6 @@ func die(force):
 
 	dead.launch(force)
 
-	await get_tree().create_timer(0.05).timeout
-
 	queue_free()
 
 	var spawner = get_tree().get_first_node_in_group("spawner")

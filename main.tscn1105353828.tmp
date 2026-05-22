@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bnqrplxsddyvt"]
+
+[ext_resource type="PackedScene" uid="uid://c4laa4yvdgdjl" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dyrk73o82b8lc" path="res://Enemy.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dbis3o2ggdwkx" path="res://enemy_spawner.gd" id="3_h2yge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
+
+[node name="Main" type="Node3D" unique_id=261621673]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=147581747]
+transform = Transform3D(3.6086087, 0, 0, 0, 1, 0, 0, 0, 4.0683613, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=429834385]
+transform = Transform3D(21.646704, 0, 0, 0, 0.11355156, 0, 0, 0, 15.842349, 0, 0, 0)
+shape = SubResource("BoxShape3D_ig7tw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1119274549]
+transform = Transform3D(10.832687, 0, 0, 0, 0.5715934, 0, 0, 0, 7.9196477, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7dm0k")
+
+[node name="Player" parent="." unique_id=1680229653 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2456775, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=494798116]
+transform = Transform3D(1, 0, 0, 0, 0.044159908, 0.9990245, 0, -0.9990245, 0.04415991, 0, 12.618634, 0)
+
+[node name="Enemy" parent="." unique_id=1691479726 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.090115, 1.0567703, 18.485212)
+
+[node name="Enemy2" parent="." unique_id=1912830993 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.002779, 1.056776, -0.40933228)
+
+[node name="Enemy3" parent="." unique_id=1159141447 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.634159, 1.0567741, 7.938343)
+
+[node name="Enemy4" parent="." unique_id=959783711 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.871761, 1.056776, -3.9999847)
+
+[node name="Enemy5" parent="." unique_id=1395531844 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5563221, 1.056776, -9.590176)
+
+[node name="EnemySpawner" type="Node3D" parent="." unique_id=605013730 groups=["spawner"]]
+script = ExtResource("3_h2yge")
